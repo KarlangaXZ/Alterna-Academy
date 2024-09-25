@@ -1,6 +1,7 @@
 // Ejercicio #2:  Un día de tragos
 
-// Se requiere identificar la cantidad de bebida tomada y su marca correspondientes teniendo en cuenta lo siguiente:
+// Se requiere identificar la cantidad de bebida tomada y su marca correspondientes teniendo 
+//en cuenta lo siguiente:
 
 // Solo dispones de RD$ 20,000 y debes agotar dicho dinero en 15 rondas.
 
