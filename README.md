@@ -1,4 +1,4 @@
 # ALterna Academy BootCamp 
 <hr>
 
-Practicas y ejercicios.
+Practicas y ejercicios. +
