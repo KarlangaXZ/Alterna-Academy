@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./iconoFactura.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <title>Sistema de Facturacion</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Sistema de Facturación <u>La Melaza</u></h1>
+
+        <form id="facturaForm">
+            <label for="producto">Producto</label><br>
+            <input type="text" id="producto" name="producto" placeholder="Nombre del producto" required><br>
+
+            <label for="cantidad">Cantidad</label><br>
+            <input type="number" id="cantidad" name="cantidad" placeholder="Cantidad" required><br>
+
+            <label for="precio">Precio Unitario</label><br>
+            <input type="number" id="precio" name="precio" placeholder="Precio unitario" required>
+
+            <button type="button">Agregar Producto</button>
+        </form>
+
+        <h2>Detalles de la Factura</h2>
+        <table id="facturaTable">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio Unitario</th>
+                    <th>Total</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
+
+        <p class="total">Total Factura: $<span id="totalFactura">0.00</span></p>
+    </div>
+
+    
+</body>
+</html>
