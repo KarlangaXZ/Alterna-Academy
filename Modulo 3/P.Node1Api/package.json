@@ -1,5 +1,9 @@
 {
   "dependencies": {
+    "bootstrap": "^5.3.3",
     "express": "^4.21.1"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.14"
   }
 }

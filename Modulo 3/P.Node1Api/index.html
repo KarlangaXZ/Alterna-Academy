@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Agenda telefonica</h1>
+    <form action="contactFom">
+        <input type="hidden" id="contactId"/>
+        <input type="text" id="contactName" placeholder="Nombre Completo" required />
+        <input type="tel" id="contactPhone" placeholder="Telefono" required />
+        <input type="email" id="contactEmail" placeholder="Email" required />
+        <button  type="button">Guardar Contacto</button>
+    </form>
+</div>
+    <h2>Contactos</h2>
+    <table>
+        <thead>
+            <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Telefono</th>
+            <th>Correo</th>
+            <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="contactTable">
+           <tr>
+           </tr>
+        </tbody>
+    </table>
+
+    <script src="app.js"></script>
+</body>
+</html>
