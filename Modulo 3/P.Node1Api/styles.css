@@ -1,18 +1,18 @@
 
 table {
-    width: 80%;
+    width: 50%;
     border-collapse: collapse;
     background-color: bisque;
-    text-align: center;
 }
 tbody{
     background-color: #e6e5e5;
+    color: black;
 }
 table, th, td {
     border: 1px solid black;
     ;
 }
 th, td {
-    padding: 8px;
-    text-align: left;
+    padding: 5px;
+    text-align: center;
 }

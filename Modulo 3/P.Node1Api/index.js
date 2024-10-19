@@ -1,5 +1,8 @@
 const express = require("express");
 const app = express();
+var cors = require('cors');
+
+app.use(cors());
 
 app.use(express.json());
 
@@ -56,7 +59,7 @@ app.get("/api/contacts/:id", (req, res) => {
 
 
 //add contact
-app.post('/api/contacts', (req,res)=>{
+app.post('/api/contacts', (req, res)=>{
     
     const {name, phoneNumber, email} = req.body;
 
@@ -120,7 +123,7 @@ app.delete('/api/contacts/:id',(req, res) => {
         return res.status(404).json({error:'Ese contacto no se encontro'});
 
     contacts.splice(index, 1);
-    res.status(204).send('Se elimino correctamente');
+    res.status(200).send('Se elimino correctamente');
         
 });
 
