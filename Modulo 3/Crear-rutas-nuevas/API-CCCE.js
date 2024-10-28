@@ -45,7 +45,7 @@ app.get("/api/contacts/:id", (req, res) => {
   const id = parseInt(req.params.id, 10);
 
   if (isNaN(id)) {
-    return res.status(400).json({ error: "El ID debe ser un número." });
+    return res.status(400).json({ error: "El ID debe ser un número" });
   }
 
   const contact = contacts.find(contact => contact.id === id);
