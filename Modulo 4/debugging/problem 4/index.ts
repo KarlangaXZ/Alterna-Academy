@@ -6,7 +6,7 @@ function calculateLetterFrequency(input: string) {
       undefined;
     for (const item of letterCountArray) {
       if (item.letter === letter) {
-        foundLetterItem = { ...item };
+        foundLetterItem = item;
       }
     }
 
@@ -38,10 +38,10 @@ function createLetterItem(
   letter: string,
   frequencyMap: { letter: string; count: number }[]
 ) {
-  frequencyMap.push({ letter: letter, count: 0 });
+  frequencyMap.push({ letter: letter, count: 1 });
 }
 
 const inputString =
-  "This is a problem about pass by value versus passing by reference.";
+  "Pero que diablura del diablo es que esta pasando aqui diablazo";
 const frequencyMap = calculateLetterFrequency(inputString);
 printLetterFrequency(frequencyMap);
