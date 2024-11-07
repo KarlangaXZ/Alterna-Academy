@@ -1,14 +1,3 @@
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 function calculateLetterFrequency(input) {
     var letterCountArray = [];
     for (var _i = 0, input_1 = input; _i < input_1.length; _i++) {
@@ -17,7 +6,7 @@ function calculateLetterFrequency(input) {
         for (var _a = 0, letterCountArray_1 = letterCountArray; _a < letterCountArray_1.length; _a++) {
             var item = letterCountArray_1[_a];
             if (item.letter === letter) {
-                foundLetterItem = __assign({}, item);
+                foundLetterItem = item;
             }
         }
         if (foundLetterItem) {
@@ -36,14 +25,12 @@ function printLetterFrequency(frequencyMap) {
         console.log("".concat(item.letter, ": ").concat(item.count));
     }
 }
-console.info(incrementLetterCount);
 function incrementLetterCount(item) {
     item.count += 1;
 }
-console.info(incrementLetterCount);
 function createLetterItem(letter, frequencyMap) {
-    frequencyMap.push({ letter: letter, count: 0 });
+    frequencyMap.push({ letter: letter, count: 1 });
 }
-var inputString = "This is a problem about pass by value versus passing by reference.";
+var inputString = "Pero que diablura del diablo es que esta pasando aqui diablazo";
 var frequencyMap = calculateLetterFrequency(inputString);
 printLetterFrequency(frequencyMap);
