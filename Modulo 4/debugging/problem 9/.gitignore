@@ -1,0 +1,12 @@
+
+#  node_modules
+node_modules
+
+# texto
+*.txt
+.vs
+
+# Ignora los archivos relacionados a API keys
+.env
+obj
+bin
