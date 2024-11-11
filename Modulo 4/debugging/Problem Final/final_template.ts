@@ -191,4 +191,3 @@ if (!configuration.result) {
 
 const csvData = parseCSV(filePath, configuration.options);
 console.info(csvData);
-
