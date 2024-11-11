@@ -168,7 +168,7 @@ function parseCSV(
   }
 
   if (currentDataArray.length > 0) {
-    data.push(currentDataArray); // Add last line if not terminated
+    data.push(currentDataArray); 
   }
 
   console.info(data);
