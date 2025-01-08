@@ -1,6 +1,14 @@
 @todo_HostAddress = http://localhost:5077
 
-GET {{todo_HostAddress}}/weatherforecast/
+GET {{todo_HostAddress}}/Todos/2
 Accept: application/json
+
+###
+
+GET {{todo_HostAddress}}/Todos/4
+
+###
+
+DELETE {{todo_HostAddress}}/Todos/1
 
 ###
