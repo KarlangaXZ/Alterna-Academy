@@ -5,17 +5,13 @@ Accept: application/json
 
 ###
 
-GET {{todo_HostAddress}}/Todos/4
-
-###
-
 POST {{todo_HostAddress}}/Todos/
 content-type: application/json
 
 {
   "titulo": "Barajando",
     "caducidad": "2025-02-22",
-    "completado": true
+    "completado": false
 }
 ###
 
@@ -45,8 +41,5 @@ Content-Type: application/json
 }
 
 ###
-DELETE {{todo_HostAddress}}/Todos/3
+DELETE {{todo_HostAddress}}/Todos/1
 Content-Type: application/json
-{
-
-}
