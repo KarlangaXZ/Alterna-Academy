@@ -4,16 +4,18 @@ using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddSingleton<ITodoRepository,TodoRepository>();
 
 // Aqui corre el builder
 var app = builder.Build();
+var todoRepository = app.Services.GetRequiredService<ITodoRepository>();
 
 var todos = new List<Todo> {
 
 };
 
 // Get de la data - endpoint
-TodoEndpoints.Map(app, todos);
+TodoEndpoints.Map(app, todoRepository);
 
 // Corre tu applicacion
 app.Run();

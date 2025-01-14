@@ -3,12 +3,12 @@ using Microsoft.AspNetCore.Http.HttpResults;
 public static class TodoEndpoints
 {
 
-    public static void Map(WebApplication app, List<Todo> todos)
+    public static void Map(WebApplication app, ITodoRepository todoRepository)
     {
 
         app.MapGet("/", () => "Bienvenido a mi hola mundo");
 
-        app.MapGet("/todos", () => todos);
+        app.MapGet("/todos", () => todoRepository.GetAll());
 
 
 
@@ -16,16 +16,16 @@ public static class TodoEndpoints
         app.MapPost("/todos", Results<Created<Todo>, BadRequest> (Todo todo) =>
         {
 
-            if (todo is null || string.IsNullOrWhiteSpace(todo.Titulo))
+            try
+            {
+                var newTodo = todoRepository.Create(todo);
+                return TypedResults.Created("/todos/{id}", newTodo);
+            }
+            catch (Exception)
             {
                 return TypedResults.BadRequest();
             }
 
-            int idCount = todos.Any() ? todos.Max(t => t.Id) + 1 : 1;
-            todo = todo with { Id = idCount };
-
-            todos.Add(todo);
-            return TypedResults.Created("/todos/{id}", todo);
 
         }).AddEndpointFilter(async (context, next) =>
         {
@@ -59,7 +59,7 @@ public static class TodoEndpoints
         app.MapGet("/todos/{id}", Results<Ok<Todo>, IResult> (int id) =>
         {
 
-            var todo = todos.FirstOrDefault(todo => todo.Id == id);
+            var todo = todoRepository.Get(id);
 
             if (todo is null)
             {
@@ -78,19 +78,17 @@ public static class TodoEndpoints
         // Varios
         app.MapPost("/manytodos", Results<Created<IEnumerable<string>>, BadRequest> (List<Todo> todosMany) =>
         {
-
-            if (todosMany is null || !todosMany.Any())
+            try
             {
+                var todos = todoRepository.CreateMany(todosMany);
+                return TypedResults.Created("/manytodos/{todosMany}", todos.Select(t => t.Titulo));
+            }
+
+            catch (Exception)
+            {
+
                 return TypedResults.BadRequest();
             }
-
-            foreach (var todo in todosMany)
-            {
-                int idCount = todos.Any() ? todos.Max(t => t.Id) + 1 : 1;
-                todos.Add(new Todo(idCount, todo.Titulo, todo.Caducidad, todo.Completado));
-            }
-
-            return TypedResults.Created("/manytodos/{todosMany}", todosMany.Select(t => t.Titulo));
 
         });
 
@@ -98,7 +96,7 @@ public static class TodoEndpoints
         app.MapPut("/todos/{id}", Results<Ok<Todo>, IResult> (int id, Todo newTodoParam) =>
         {
 
-            var todo = todos.FirstOrDefault(todo => todo.Id == id);
+            var todo = todoRepository.Update(id, newTodoParam);
 
             if (todo is null)
             {
@@ -110,12 +108,7 @@ public static class TodoEndpoints
             }
             else
             {
-
-                todos.Remove(todo);
-                var newTodo = new Todo(id, newTodoParam.Titulo, todo.Caducidad, todo.Completado);
-                todos.Add(newTodo);
-
-                return TypedResults.Ok(newTodo);
+                return TypedResults.Ok(todo);
             }
 
         });
@@ -125,21 +118,22 @@ public static class TodoEndpoints
         app.MapDelete("/todos/{id}", Results<NoContent, NotFound> (int id) =>
         {
 
-            var todo = todos.FirstOrDefault(todo => todo.Id == id);
+            var isDeleted = todoRepository.Delete(id);
 
-            if (todo is null)
+            if (!isDeleted)
             {
                 return TypedResults.NotFound();
             }
 
-            todos.Remove(todo);
             return TypedResults.NoContent();
+
             /* en el delete Agregar un endpoint filter si la propiedad completada
             es igual a false no me debe dejar borrar el registro */
+
         }).AddEndpointFilter(async (context, next) =>
         {
             var id = context.GetArgument<int>(0);
-            var todo = todos.FirstOrDefault(todo => todo.Id == id);
+            var todo = todoRepository.GetAll().FirstOrDefault(todo => todo.Id == id);
 
             if (todo is null)
             {
