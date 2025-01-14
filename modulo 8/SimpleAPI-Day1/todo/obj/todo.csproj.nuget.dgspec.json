@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Personal\\Desktop\\Alterna Academy\\modulo 8\\SimpleAPI-Day1\\todo\\todo.csproj": {}
+    "C:\\Users\\Personal\\Desktop\\Alterna Academy\\modulo 8\\SimpleAPI-Day1\\todo\\todo.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Personal\\Desktop\\Alterna Academy\\modulo 8\\SimpleAPI-Day1\\todo\\todo.csproj": {
+    "C:\\Users\\Personal\\Desktop\\Alterna Academy\\modulo 8\\SimpleAPI-Day1\\todo\\todo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Personal\\Desktop\\Alterna Academy\\modulo 8\\SimpleAPI-Day1\\todo\\todo.csproj",
+        "projectUniqueName": "C:\\Users\\Personal\\Desktop\\Alterna Academy\\modulo 8\\SimpleAPI-Day1\\todo\\todo.csproj",
         "projectName": "todo",
-        "projectPath": "c:\\Users\\Personal\\Desktop\\Alterna Academy\\modulo 8\\SimpleAPI-Day1\\todo\\todo.csproj",
+        "projectPath": "C:\\Users\\Personal\\Desktop\\Alterna Academy\\modulo 8\\SimpleAPI-Day1\\todo\\todo.csproj",
         "packagesPath": "C:\\Users\\Personal\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Personal\\Desktop\\Alterna Academy\\modulo 8\\SimpleAPI-Day1\\todo\\obj\\",
+        "outputPath": "C:\\Users\\Personal\\Desktop\\Alterna Academy\\modulo 8\\SimpleAPI-Day1\\todo\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
