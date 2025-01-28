@@ -1,15 +1,46 @@
-.main-container{
-    margin: 30px;
+nav {
     display: flex;
-  
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1183c9;
+    padding: 10px;
+}
+.main-container{
+    margin: 1px 0;
+    display: flex;
+    width: 100%;
+    height: 90vh;
 }
 
 aside{
     flex: 1;
-    background-color: #5b5858;
+    background-color: #11a45d;
     padding: 10px;
+    justify-content: center;
+    text-align: center;
+    
 }
 
 main{
     flex:3;
+    text-align: center;
+    background-color: rgb(193, 94, 193);
+}
+
+footer{
+    background-color: #1183c9;
+    padding: 10px;
+    text-align: center;
+}
+
+@media (max-width: 768px){
+    .main-container{
+        flex-direction: column;
+    }
+    aside{
+        flex: 1;
+    }
+    main{
+        flex: 2;
+    }
 }
