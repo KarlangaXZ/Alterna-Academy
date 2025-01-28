@@ -1,0 +1,15 @@
+.main-container{
+    margin: 30px;
+    display: flex;
+  
+}
+
+aside{
+    flex: 1;
+    background-color: #5b5858;
+    padding: 10px;
+}
+
+main{
+    flex:3;
+}
