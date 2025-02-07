@@ -1,0 +1,9 @@
+{
+  "states": {
+    "q0": { "a": "q1" },
+    "q1": { "b": "q2" },
+    "q2": { "b": "q3" }
+  },
+  "initialState": "q0",
+  "finalStates": ["q3"]
+}
